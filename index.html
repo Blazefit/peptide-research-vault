@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peptide Research Vault — CrossFit Blaze</title>
+    <meta name="description" content="Evidence-based peptide research database. Educational reference only — not medical advice.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Disclaimer Banner -->
+    <div class="disclaimer-banner" id="disclaimer">
+        <div class="disclaimer-inner">
+            <span class="disclaimer-icon">&#9888;</span>
+            <p>Educational &amp; research reference only. This site does not provide medical advice, diagnosis, or treatment recommendations. Consult a licensed physician before making any health decisions.</p>
+            <button class="disclaimer-close" id="disclaimerClose" aria-label="Dismiss">&times;</button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="brand">
+                <div class="brand-mark">CF<span class="brand-accent">B</span></div>
+                <div class="brand-text">
+                    <span class="brand-title">Peptide Research Vault</span>
+                    <span class="brand-sub">CrossFit Blaze — Naples, FL</span>
+                </div>
+            </div>
+            <nav class="header-nav">
+                <a href="#peptides" class="nav-link active">Compounds</a>
+                <a href="#references" class="nav-link">References</a>
+                <a href="#about" class="nav-link">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-badge">46 Compounds &middot; 311 Citations &middot; 6 Evidence Tiers</div>
+            <h1 class="hero-title">Peptide Research<br><span class="hero-highlight">Vault</span></h1>
+            <p class="hero-subtitle">A curated, evidence-ranked database of peptide research. Every compound graded by clinical rigor — from FDA-approved therapeutics to experimental molecules with zero human data.</p>
+            <div class="hero-actions">
+                <a href="#peptides" class="btn btn-primary">Explore Compounds</a>
+                <a href="#references" class="btn btn-ghost">View References</a>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-card">
+                <span class="stat-value" id="statRCT">92</span>
+                <span class="stat-label">RCTs Cited</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value" id="statPreclinical">60</span>
+                <span class="stat-label">Preclinical</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value" id="statReviews">56</span>
+                <span class="stat-label">Reviews</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tier Legend -->
+    <section class="tier-legend-section">
+        <div class="container">
+            <h2 class="section-eyebrow">Evidence Tier System</h2>
+            <div class="tier-legend">
+                <div class="tier-item" data-tier="S">
+                    <span class="tier-badge tier-s">S</span>
+                    <span class="tier-desc">FDA-approved or Phase 3 RCT</span>
+                </div>
+                <div class="tier-item" data-tier="A">
+                    <span class="tier-badge tier-a">A</span>
+                    <span class="tier-desc">Strong preclinical + limited human data</span>
+                </div>
+                <div class="tier-item" data-tier="B">
+                    <span class="tier-badge tier-b">B</span>
+                    <span class="tier-desc">Promising early-phase or combo data</span>
+                </div>
+                <div class="tier-item" data-tier="C">
+                    <span class="tier-badge tier-c">C</span>
+                    <span class="tier-desc">Mixed evidence or niche application</span>
+                </div>
+                <div class="tier-item" data-tier="D">
+                    <span class="tier-badge tier-d">D</span>
+                    <span class="tier-desc">Minimal or outdated evidence</span>
+                </div>
+                <div class="tier-item" data-tier="F">
+                    <span class="tier-badge tier-f">F</span>
+                    <span class="tier-desc">High risk / no quality human data</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content: Peptides -->
+    <main id="peptides" class="main-content">
+        <div class="container">
+            <!-- Search & Filters -->
+            <div class="controls">
+                <div class="search-wrap">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    <input type="search" id="searchInput" class="search-input" placeholder="Search compounds..." autocomplete="off">
+                </div>
+                <div class="filter-chips" id="filterChips">
+                    <button class="chip active" data-tier="all">All</button>
+                    <button class="chip chip-s" data-tier="S">S</button>
+                    <button class="chip chip-a" data-tier="A">A</button>
+                    <button class="chip chip-b" data-tier="B">B</button>
+                    <button class="chip chip-c" data-tier="C">C</button>
+                    <button class="chip chip-d" data-tier="D">D</button>
+                    <button class="chip chip-f" data-tier="F">F</button>
+                </div>
+                <div class="results-count" id="resultsCount"></div>
+            </div>
+
+            <!-- Peptide Grid -->
+            <div class="peptide-grid" id="peptideGrid">
+                <!-- Rendered by JS -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Detail Drawer -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <aside class="detail-drawer" id="detailDrawer" aria-hidden="true">
+        <div class="drawer-header">
+            <button class="drawer-close" id="drawerClose" aria-label="Close detail panel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+        </div>
+        <div class="drawer-body" id="drawerBody">
+            <!-- Populated by JS -->
+        </div>
+    </aside>
+
+    <!-- References Section -->
+    <section id="references" class="references-section">
+        <div class="container">
+            <h2 class="section-title">Research References</h2>
+            <p class="section-desc">311 citations across 6 categories. All links point to PubMed, publisher sites, or official regulatory sources.</p>
+
+            <div class="ref-tabs" id="refTabs">
+                <button class="ref-tab active" data-type="rct">RCTs <span class="ref-count">92</span></button>
+                <button class="ref-tab" data-type="preclinical">Preclinical <span class="ref-count">60</span></button>
+                <button class="ref-tab" data-type="review">Reviews <span class="ref-count">56</span></button>
+                <button class="ref-tab" data-type="official">Official <span class="ref-count">57</span></button>
+                <button class="ref-tab" data-type="observational">Observational <span class="ref-count">28</span></button>
+                <button class="ref-tab" data-type="adverse">Adverse <span class="ref-count">18</span></button>
+            </div>
+
+            <div class="ref-list" id="refList">
+                <!-- Rendered by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Footer -->
+    <footer id="about" class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>About This Vault</h3>
+                    <p>Curated by CrossFit Blaze (Naples, FL) as an educational resource for athletes and biohacking enthusiasts. All data sourced from publicly available research literature and regulatory filings.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Disclaimer</h3>
+                    <p>This website is for <strong>educational and informational purposes only</strong>. Nothing here constitutes medical advice. No dosing protocols, purchasing guidance, or treatment recommendations are provided. Always consult a qualified healthcare provider.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Data Sources</h3>
+                    <ul>
+                        <li>PubMed / NIH</li>
+                        <li>ClinicalTrials.gov</li>
+                        <li>FDA DailyMed</li>
+                        <li>Peer-reviewed journals</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">&copy; 2026 CrossFit Blaze. Educational use only.</p>
+                <p class="footer-source">Data: 311 references from public research literature.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
