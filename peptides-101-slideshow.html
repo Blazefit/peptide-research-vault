@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Peptides 101 — Clinic Slideshow | CrossFit Blaze</title>
+  <meta name="description" content="CrossFit Blaze clinic slideshow: peptides, signal pathways, evidence tiers, labs-first strategy, and safety red flags. Educational only.">
+  <meta property="og:title" content="Peptides 101: Signals, Strategy & Safety">
+  <meta property="og:description" content="A clinic-safe educational slideshow from the CrossFit Blaze Peptide Research Vault.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#07070b; --panel:#11111b; --panel2:#171725; --text:#f4f4f7; --muted:#a2a2b3; --dim:#707083; --border:rgba(255,255,255,.11); --red:#ff3b30; --orange:#ff8a1f; --blue:#0071e3; --green:#22e07c; --yellow:#ffd60a; --shadow:0 30px 90px rgba(0,0,0,.55); }
+    *{box-sizing:border-box} html,body{margin:0;min-height:100%;background:radial-gradient(circle at 20% 0%, rgba(255,59,48,.18), transparent 32%),radial-gradient(circle at 90% 8%, rgba(0,113,227,.18), transparent 34%),var(--bg);color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;overflow:hidden} body:before{content:"";position:fixed;inset:0;background:linear-gradient(rgba(255,255,255,.024) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.024) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(to bottom, rgba(0,0,0,.65), transparent 86%);pointer-events:none}
+    a{color:#8dc5ff;text-decoration:none} a:hover{text-decoration:underline}
+    .topbar{position:fixed;top:0;left:0;right:0;z-index:20;height:68px;display:flex;align-items:center;justify-content:space-between;padding:14px clamp(16px,3vw,34px);background:rgba(7,7,11,.76);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+    .brand{display:flex;align-items:center;gap:12px;min-width:0} .mark{width:40px;height:40px;border:1px solid var(--border);border-radius:12px;display:grid;place-items:center;font-weight:900;letter-spacing:-.04em;background:linear-gradient(135deg,#222, #111)} .mark span{color:var(--red)} .brand-title{font-weight:800;line-height:1.05;white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .brand-sub{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+    .top-actions{display:flex;align-items:center;gap:10px} .pill,.btn{border:1px solid var(--border);border-radius:999px;padding:9px 13px;background:rgba(255,255,255,.05);color:var(--text);font-size:13px;font-weight:700} .btn.primary{background:linear-gradient(135deg,var(--red),var(--orange));border-color:transparent;color:white;box-shadow:0 10px 30px rgba(255,80,45,.25)}
+    .deck{height:100dvh;width:100vw;padding:92px clamp(12px,2vw,28px) 92px;display:grid;place-items:center;position:relative}
+    .slide{display:none;width:min(1180px,100%);height:min(680px,calc(100dvh - 184px));background:linear-gradient(145deg,rgba(23,23,37,.96),rgba(11,11,18,.96));border:1px solid var(--border);border-radius:30px;box-shadow:var(--shadow);padding:clamp(22px,4vw,56px);position:relative;overflow:auto} .slide.active{display:block;animation:fade .22s ease-out} @keyframes fade{from{opacity:.25;transform:translateY(8px) scale(.995)}to{opacity:1;transform:none}}
+    .slide:after{content:"";position:absolute;right:-12%;top:-18%;width:520px;height:520px;background:radial-gradient(circle,rgba(255,59,48,.15),transparent 60%);pointer-events:none} .slide-kicker{font-family:'JetBrains Mono',monospace;color:var(--orange);font-size:12px;text-transform:uppercase;letter-spacing:.13em;font-weight:800;margin-bottom:24px;position:relative;z-index:1}
+    .slide-body{position:relative;z-index:1;max-width:1040px} h1{font-size:clamp(42px,7vw,92px);line-height:.92;letter-spacing:-.07em;margin:0 0 22px;font-weight:900} h2{font-size:clamp(24px,4vw,48px);line-height:1.02;letter-spacing:-.045em;margin:0 0 20px;font-weight:850;color:#fff} p,.lead{font-size:clamp(18px,2vw,25px);line-height:1.48;color:#dadae6;margin:0 0 18px} ul,ol{margin:18px 0 0;padding-left:1.25em;display:grid;gap:12px} li{font-size:clamp(17px,1.7vw,23px);line-height:1.35;color:#e9e9f0} li::marker{color:var(--orange);font-weight:900} strong{color:#fff;font-weight:850} em{color:#ffd5c2;font-style:normal}
+    .table-wrap{overflow:auto;border:1px solid var(--border);border-radius:18px;background:rgba(0,0,0,.18);margin-top:18px} table{width:100%;border-collapse:collapse;min-width:760px} th,td{padding:14px 16px;border-bottom:1px solid var(--border);vertical-align:top;text-align:left;font-size:16px;line-height:1.35} th{font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:#ffd4c7;background:rgba(255,59,48,.10)} tr:last-child td{border-bottom:none}
+    .speaker-notes{margin-top:24px;border-top:1px solid var(--border);padding-top:16px;color:var(--muted);font-size:14px;position:relative;z-index:1} .speaker-notes summary{list-style:none;color:#fff;font-weight:800;margin-bottom:8px} .speaker-notes p{font-size:15px;color:var(--muted);line-height:1.5}
+    .controls{position:fixed;bottom:0;left:0;right:0;z-index:25;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:16px clamp(16px,3vw,34px);background:rgba(7,7,11,.78);backdrop-filter:blur(20px);border-top:1px solid var(--border)} .navbtn{width:48px;height:48px;border-radius:15px;border:1px solid var(--border);background:rgba(255,255,255,.06);color:white;font-size:26px;font-weight:800} .navbtn:hover{background:rgba(255,255,255,.11)} .progress-wrap{display:grid;gap:8px} .progress-meta{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;font-family:'JetBrains Mono',monospace} .progress{height:8px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden} .bar{height:100%;width:6.25%;background:linear-gradient(90deg,var(--red),var(--orange));border-radius:999px;transition:width .2s ease}
+    .disclaimer{position:fixed;left:50%;bottom:78px;transform:translateX(-50%);z-index:22;width:min(880px,calc(100% - 28px));border:1px solid rgba(255,214,10,.25);background:rgba(32,28,12,.88);backdrop-filter:blur(12px);border-radius:18px;padding:11px 16px;color:#e8dfaa;font-size:12px;line-height:1.45;text-align:center}
+    @media (max-width:720px){.topbar{height:60px;padding:10px 12px}.brand-sub,.pill{display:none}.mark{width:36px;height:36px}.brand-title{font-size:14px}.deck{padding:74px 10px 88px}.slide{height:calc(100dvh - 162px);border-radius:22px;padding:24px 18px} h1{font-size:43px} h2{font-size:28px} p,.lead{font-size:18px} li{font-size:17px} .controls{padding:12px;gap:10px} .navbtn{width:46px;height:46px} .disclaimer{display:none} table{min-width:620px}}
+    @media print{html,body{overflow:visible;background:white;color:black}.topbar,.controls,.disclaimer{display:none}.deck{display:block;height:auto;padding:0}.slide{display:block;break-after:page;height:auto;box-shadow:none;border:1px solid #ddd;color:black;background:white;margin:0;padding:40px;overflow:visible} h1,h2,strong{color:black} p,li,td{color:#111}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Back to Peptide Research Vault"><div class="mark">CF<span>B</span></div><div><div class="brand-title">Peptides 101 Slideshow</div><span class="brand-sub">CrossFit Blaze Research Vault</span></div></a>
+    <div class="top-actions"><span class="pill">Educational Only</span><a class="btn primary" href="./">Vault Home</a></div>
+  </header>
+  <main class="deck" id="deck">
+    <section class="slide" data-slide="1" aria-label="Slide 1: Title">
+      <div class="slide-kicker">Slide 1 / 16 · Title</div>
+      <div class="slide-body"><h1>Peptides 101</h1>
+<h2>Signals, Strategy &amp; Safety</h2>
+<p><strong>Subtitle:</strong> What peptides are, why GLP-1s changed the world, and how to think about this space without getting reckless.</p></div>
+      <aside class="speaker-notes"><summary>Speaker notes</summary><p>Tonight is not a “here’s what you should take” talk. It is a map. Peptides are a huge category: some are FDA-approved drugs, some are promising research tools, and some are internet hype with very thin evidence.</p></aside>
+    </section>
+<section class="slide" data-slide="2" aria-label="Slide 2: The Big Idea">
+      <div class="slide-kicker">Slide 2 / 16 · The Big Idea</div>
+      <div class="slide-body"><h1>A peptide is a message</h1>
+<ul><li>Peptides are short chains of amino acids.</li><li>The body uses them as <strong>signals</strong>.</li><li>Insulin, GLP-1, oxytocin, and growth-hormone signals are all peptide-related biology.</li><li>Modern peptide therapy often means taking a synthetic version of a signal the body already understands.</li></ul>
+<p><strong>Visual idea:</strong> Body as a “message network”: gut → brain → pancreas → muscle → fat cells.</p></div>
+      <aside class="speaker-notes"><summary>Speaker notes</summary><p>The simplest way to understand peptides is that they are messages. Hunger is a message. Fullness is a message. Repair is a message. Inflammation is a message. The question is: can we adjust those signals safely and intelligently?</p></aside>
+    </section>
+<section class="slide" data-slide="3" aria-label="Slide 3: Why Peptides Are Exploding Now">
+      <div class="slide-kicker">Slide 3 / 16 · Why Peptides Are Exploding Now</div>
+      <div class="slide-body"><h1>The GLP-1 revolution changed the conversation</h1>
+<p>For decades, weight loss advice was mostly:</p>
+<ol><li>Eat less</li><li>Move more</li><li>Try harder</li></ol>
+<p>Those still matter. But GLP-1 drugs showed that <strong>appetite, cravings, blood sugar, and body weight are signal-driven</strong>, not just willpower-driven.</p>
+<p><strong>Key line:</strong> If hunger is a signal, the signal can be changed.</p></div>
+      <aside class="speaker-notes"><summary>Speaker notes</summary><p>This is why people are paying attention. Semaglutide and tirzepatide proved that changing a biological signal can change behavior and outcomes. That opened the door for people to ask what other signals can be supported: recovery, inflammation, mitochondrial output, libido, focus, tissue repair.</p></aside>
+    </section>
+<section class="slide" data-slide="4" aria-label="Slide 4: The Evidence Ladder">
+      <div class="slide-kicker">Slide 4 / 16 · The Evidence Ladder</div>
+      <div class="slide-body"><h1>Not all peptides belong in the same bucket</h1>
+<div class="table-wrap"><table>
+<thead><tr><th>Evidence Level</th><th>Examples</th><th>How to Think About It</th></tr></thead>
+<tbody>
+<tr><td>FDA-approved / Phase 3</td><td>Semaglutide, Tirzepatide, Tesamorelin, PT-141</td><td>Best-characterized; still needs screening</td></tr>
+<tr><td>Human trial / emerging</td><td>Retatrutide, CagriSema, SS-31</td><td>Promising but context-dependent</td></tr>
+<tr><td>Preclinical / gray zone</td><td>BPC-157, TB-500, MOTS-c, many bioregulators</td><td>Mechanistic interest, limited human proof</td></tr>
+<tr><td>Anecdote / internet hype</td><td>Many stacks and “secret protocols”</td><td>Highest caution</td></tr>
+</tbody>
+</table></div></div>
+      <aside class="speaker-notes"><summary>Speaker notes</summary><p>This is the slide I want everyone to remember. “Peptide” does not automatically mean safe, effective, or experimental. It depends which one we are talking about and what evidence exists.</p></aside>
+    </section>
+<section class="slide" data-slide="5" aria-label="Slide 5: Group 1: Fat-Loss &amp; Metabolic Peptides">
+      <div class="slide-kicker">Slide 5 / 16 · Group 1: Fat-Loss &amp; Metabolic Peptides</div>
+      <div class="slide-body"><h1>Fat loss is not one pathway</h1>
+<p><strong>AOD-9604</strong> — GH fragment designed around lipolysis; human data exists but modest effect.</p>
+<p><strong>5-Amino-1MQ</strong> — technically not a peptide; targets NNMT/metabolic signaling.</p>
+<p><strong>Tesofensine</strong> — not a peptide; brain/craving pathway, originally studied outside obesity.</p>
+<p><strong>Cagrilintide / CagriSema</strong> — amylin/fullness pathway; stronger when paired with GLP-1.</p>
+<p><strong>Melanotan II</strong> — multi-pathway; tanning/libido/appetite effects, not a clean fat-loss tool.</p></div>
+      <aside class="speaker-notes"><summary>Speaker notes</summary><p>The public lumps all of this together as “fat-burning peptides,” but they are not the same. Some affect appetite. Some affect energy handling. Some affect multiple receptors and bring more side-effect complexity.</p></aside>
+    </section>
+<section class="slide" data-slide="6" aria-label="Slide 6: Group 2: GLP-1s &amp; Next-Gen Incretins">
+      <div class="slide-kicker">Slide 6 / 16 · Group 2: GLP-1s &amp; Next-Gen Incretins</div>
+      <div class="slide-body"><h1>The most proven peptide-adjacent weight-loss category</h1>
+<ul><li><strong>Semaglutide</strong> — GLP-1; strong evidence; FDA-approved for obesity as Wegovy.</li><li><strong>Tirzepatide</strong> — GLP-1 + GIP; stronger average weight loss; FDA-approved as Zepbound/Mounjaro depending indication.</li><li><strong>Retatrutide</strong> — GLP-1 + GIP + glucagon; extremely promising, not FDA-approved yet.</li><li><strong>Survodutide / Mazdutide / Cotadutide</strong> — next-gen incretin designs, often targeting fatty liver/metabolic disease subgroups.</li></ul>
+<p><strong>Clinic framing:</strong> These require labs, contraindication screening, nutrition strategy, strength training, and long-term planning.</p></div>
+      
+    </section>
+<section class="slide" data-slide="7" aria-label="Slide 7: Group 3: Growth Hormone Signaling">
+      <div class="slide-kicker">Slide 7 / 16 · Group 3: Growth Hormone Signaling</div>
+      <div class="slide-body"><h1>Recovery, sleep, body composition — but not magic</h1>
+<ul><li><strong>CJC-1295 / Sermorelin</strong> — GHRH-style signal: tells pituitary to release GH.</li><li><strong>Ipamorelin</strong> — ghrelin-receptor signal: amplifies GH pulses with less cortisol/prolactin activity than older GHRPs.</li><li><strong>Tesamorelin</strong> — stronger GHRH analog; FDA-approved for HIV-associated visceral fat.</li><li><strong>GHRP-2 / GHRP-6 / Hexarelin</strong> — older, stronger, but more side-effect baggage.</li></ul>
+<p><strong>Key caution:</strong> GH-axis conversations should include IGF-1, glucose/A1c, sleep apnea risk, edema, carpal-tunnel symptoms, cancer history, and goals.</p></div>
+      
+    </section>
+<section class="slide" data-slide="8" aria-label="Slide 8: Group 4: Mitochondrial &amp; Energy Peptides">
+      <div class="slide-kicker">Slide 8 / 16 · Group 4: Mitochondrial &amp; Energy Peptides</div>
+      <div class="slide-body"><h1>Energy starts inside the cell</h1>
+<ul><li><strong>MOTS-c</strong> — mitochondrial-derived peptide; often discussed as an AMPK/exercise-mimetic signal.</li><li><strong>SS-31 / Elamipretide</strong> — mitochondrial membrane/cardiolipin support; stronger clinical development than most “research peptides.”</li><li><strong>Humanin</strong> — mitochondrial-derived peptide linked to aging/metabolic resilience research.</li><li><strong>SLU-PP-332</strong> — not a peptide; exercise-mimetic research compound, very early.</li></ul></div>
+      <aside class="speaker-notes"><summary>Speaker notes</summary><p>This category is exciting but easy to overhype. The question is not “Can this replace exercise?” It is “What cellular bottleneck are we actually trying to support?”</p></aside>
+    </section>
+<section class="slide" data-slide="9" aria-label="Slide 9: Group 5: Repair, Inflammation &amp; Tissue Support">
+      <div class="slide-kicker">Slide 9 / 16 · Group 5: Repair, Inflammation &amp; Tissue Support</div>
+      <div class="slide-body"><h1>The recovery stack is where hype gets loud</h1>
+<ul><li><strong>BPC-157</strong> — strong preclinical repair story; limited human clinical proof.</li><li><strong>TB-500 / Thymosin β4 fragments</strong> — cell migration, actin, tissue-repair discussion; limited human evidence.</li><li><strong>GHK-Cu</strong> — copper peptide; skin/hair/wound-healing signal with broader cosmetic use.</li><li><strong>KPV / Thymosin Alpha-1</strong> — immune/inflammation pathways.</li><li><strong>Cartalax / bioregulators</strong> — cartilage/bone claims, but evidence remains thin.</li></ul>
+<p><strong>Clinic framing:</strong> Tissue repair still starts with diagnosis, imaging when needed, rehab loading, protein, sleep, micronutrients, and inflammation control.</p></div>
+      
+    </section>
+<section class="slide" data-slide="10" aria-label="Slide 10: Group 6: Brain, Cravings &amp; Behavior">
+      <div class="slide-kicker">Slide 10 / 16 · Group 6: Brain, Cravings &amp; Behavior</div>
+      <div class="slide-body"><h1>The brain is part of metabolism</h1>
+<ul><li><strong>Oxytocin</strong> — fullness/emotional-eating research angle.</li><li><strong>PT-141 / Bremelanotide</strong> — FDA-approved for HSDD; melanocortin/reward-pathway overlap.</li><li><strong>Kisspeptin-10</strong> — reproductive hormone signaling tied to metabolic state.</li><li><strong>Semax / Selank</strong> — Russian nootropic/anxiolytic peptides; limited Western clinical validation.</li></ul>
+<p><strong>Key line:</strong> Fat loss is not only calories; it is appetite, reward, stress, sleep, hormones, and environment.</p></div>
+      
+    </section>
+<section class="slide" data-slide="11" aria-label="Slide 11: How to Think About Stacking">
+      <div class="slide-kicker">Slide 11 / 16 · How to Think About Stacking</div>
+      <div class="slide-body"><h1>The biggest mistake: stacking everything at once</h1>
+<p>Bad approach:</p>
+<ul><li>5–8 compounds at once</li><li>No baseline labs</li><li>No symptom tracking</li><li>No clear goal</li><li>No way to know what worked or what caused side effects</li></ul>
+<p>Better approach:</p>
+<ol><li>Define the goal.</li><li>Get baseline labs and red-flag screening.</li><li>Fix basics first: protein, training, sleep, alcohol, steps.</li><li>Add one intervention at a time.</li><li>Track outcomes and side effects.</li></ol></div>
+      
+    </section>
+<section class="slide" data-slide="12" aria-label="Slide 12: Labs-First Peptide Strategy">
+      <div class="slide-kicker">Slide 12 / 16 · Labs-First Peptide Strategy</div>
+      <div class="slide-body"><h1>Before the peptide, ask: what problem are we solving?</h1>
+<p class="lead"><strong>Useful baseline areas:</strong></p>
+<ul><li>CBC / CMP</li><li>A1c, fasting glucose, fasting insulin</li><li>Lipids, ApoB if available</li><li>Thyroid markers</li><li>Sex hormones when relevant</li><li>IGF-1 for GH-axis conversations</li><li>Inflammatory markers where appropriate</li><li>Blood pressure, waist, body composition, sleep quality</li></ul></div>
+      <aside class="speaker-notes"><summary>Speaker notes</summary><p>Peptides are not a replacement for assessment. If someone is tired, overweight, inflamed, or injured, we should not guess. We should identify the bottleneck.</p></aside>
+    </section>
+<section class="slide" data-slide="13" aria-label="Slide 13: Safety &amp; Red Flags">
+      <div class="slide-kicker">Slide 13 / 16 · Safety &amp; Red Flags</div>
+      <div class="slide-body"><h1>Who should slow down or get medical oversight?</h1>
+<ul><li>Personal/family history of medullary thyroid cancer or MEN2 for GLP-1 class discussions</li><li>Pancreatitis/gallbladder history</li><li>Active cancer or unexplained masses</li><li>Pregnancy/breastfeeding</li><li>Uncontrolled diabetes or hypoglycemia risk</li><li>Severe GI symptoms</li><li>Sleep apnea / edema / carpal tunnel in GH-axis discussions</li><li>Autoimmune complexity for immune-modulating peptides</li><li>Any peptide from a questionable source with no COA / purity testing</li></ul>
+<p><strong>Key line:</strong> The goal is not “more compounds.” The goal is better decisions.</p></div>
+      
+    </section>
+<section class="slide" data-slide="14" aria-label="Slide 14: Practical Use Cases">
+      <div class="slide-kicker">Slide 14 / 16 · Practical Use Cases</div>
+      <div class="slide-body"><h1>Matching the category to the goal</h1>
+<div class="table-wrap"><table>
+<thead><tr><th>Goal</th><th>Category to Discuss</th><th>First Questions</th></tr></thead>
+<tbody>
+<tr><td>Major weight loss</td><td>GLP-1 / incretin strategy</td><td>A1c? meds? GI history? protein/training plan?</td></tr>
+<tr><td>Belly/visceral fat</td><td>GLP-1 vs tesamorelin conversation</td><td>Is this visceral fat or total body fat? IGF-1/glucose?</td></tr>
+<tr><td>Injury recovery</td><td>Repair/inflammation support</td><td>Diagnosis? imaging? rehab plan? protein/sleep?</td></tr>
+<tr><td>Low energy</td><td>Mitochondrial/labs-first</td><td>Thyroid? iron/B12? sleep? glucose? training load?</td></tr>
+<tr><td>Cravings/emotional eating</td><td>GLP-1 / brain pathway</td><td>Sleep/stress? binge pattern? meds?</td></tr>
+<tr><td>Longevity optimization</td><td>Labs + lowest-risk levers</td><td>What metric are we actually improving?</td></tr>
+</tbody>
+</table></div></div>
+      
+    </section>
+<section class="slide" data-slide="15" aria-label="Slide 15: What Peptides Won’t Do">
+      <div class="slide-kicker">Slide 15 / 16 · What Peptides Won’t Do</div>
+      <div class="slide-body"><h1>Peptides are accelerators, not foundations</h1>
+<p>They will not replace:</p>
+<ul><li>Protein intake</li><li>Strength training</li><li>Sleep</li><li>Sunlight / circadian rhythm</li><li>Rehab progression</li><li>Alcohol reduction</li><li>Bloodwork and medical screening</li><li>Consistency</li></ul></div>
+      <aside class="speaker-notes"><summary>Speaker notes</summary><p>This is where we keep the room grounded. If someone sleeps four hours, eats poorly, drinks too much, and never trains, no vial fixes that. Peptides may help the right person at the right time, but they do not replace foundations.</p></aside>
+    </section>
+<section class="slide" data-slide="16" aria-label="Slide 16: Closing Framework">
+      <div class="slide-kicker">Slide 16 / 16 · Closing Framework</div>
+      <div class="slide-body"><h1>The CrossFit Blaze Peptide Framework</h1>
+<ol><li><strong>Goal</strong> — What are we trying to change?</li><li><strong>Evidence</strong> — Is this FDA-approved, human-trial, preclinical, or anecdotal?</li><li><strong>Labs</strong> — What markers tell us if it makes sense?</li><li><strong>Safety</strong> — Who should not touch this without a doctor?</li><li><strong>Tracking</strong> — How will we know if it helped?</li><li><strong>Basics</strong> — Are training, nutrition, sleep, and rehab already handled?</li></ol>
+<p><strong>Final line:</strong> Peptides are not magic. They are signals. Better signal, better strategy — when used carefully.</p></div>
+      
+    </section>
+  </main>
+  <div class="disclaimer">Educational and informational only. Not medical advice, prescribing, diagnosis, treatment, dosing, or sourcing guidance. Review health decisions with a licensed medical professional.</div>
+  <nav class="controls" aria-label="Slideshow controls">
+    <button class="navbtn" id="prev" aria-label="Previous slide">‹</button>
+    <div class="progress-wrap"><div class="progress-meta"><span id="counter">1 / 16</span><span>← / → keys · swipe on phone</span></div><div class="progress"><div class="bar" id="bar"></div></div></div>
+    <button class="navbtn" id="next" aria-label="Next slide">›</button>
+  </nav>
+  <script>
+    (function(){
+      var slides=[].slice.call(document.querySelectorAll('.slide'));
+      var current=0;
+      var counter=document.getElementById('counter');
+      var bar=document.getElementById('bar');
+      function show(i){
+        current=Math.max(0,Math.min(slides.length-1,i));
+        slides.forEach(function(s,idx){s.classList.toggle('active',idx===current);});
+        counter.textContent=(current+1)+' / '+slides.length;
+        bar.style.width=((current+1)/slides.length*100)+'%';
+        history.replaceState(null,'','#slide-'+(current+1));
+      }
+      document.getElementById('prev').onclick=function(){show(current-1)};
+      document.getElementById('next').onclick=function(){show(current+1)};
+      document.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();show(current+1)} if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(current-1)} if(e.key==='Home')show(0); if(e.key==='End')show(slides.length-1);});
+      var startX=null; document.addEventListener('touchstart',function(e){startX=e.touches[0].clientX},{passive:true}); document.addEventListener('touchend',function(e){if(startX===null)return; var dx=e.changedTouches[0].clientX-startX; if(Math.abs(dx)>45) show(current+(dx<0?1:-1)); startX=null;},{passive:true});
+      var m=location.hash.match(/slide-(\d+)/); show(m?parseInt(m[1],10)-1:0);
+    })();
+  </script>
+</body>
+</html>
