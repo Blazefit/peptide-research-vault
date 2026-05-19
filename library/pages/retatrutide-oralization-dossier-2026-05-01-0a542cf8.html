@@ -1,0 +1,594 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Retatrutide Oralization Dossier — 3 Iteration Loop - Peptide Vault</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/style.css"></head><body><main><div class="topbar"><a class="back" href="../index.html">← Peptide Vault</a><span class="label">⚖️ GLP&#x27;s &amp; Weight Loss/Retatrutide/Retatrutide Oralization Dossier — 2026-05-01.md</span></div><article class="article"><h1 id="retatrutide-oralization-dossier-3-iteration-loop">Retatrutide Oralization Dossier — 3 Iteration Loop</h1>
+<blockquote>
+<p><strong>Research-only note:</strong> This dossier is for scientific exploration of peptide oral-delivery feasibility. It is not clinical guidance, dosing guidance, compounding guidance, or a self-experimentation plan.</p>
+</blockquote>
+<h2 id="executive-summary">Executive Summary</h2>
+<p>The oral semaglutide breakthrough was not mainly a new semaglutide molecule; it was a <strong>co-formulated gastric delivery system</strong>: semaglutide + <strong>SNAC</strong> / salcaprozate sodium. SNAC creates a local gastric microenvironment that protects semaglutide from degradation and transiently enables <strong>transcellular stomach absorption</strong>.</p>
+<p>The closest first-pass strategy for retatrutide is therefore not to redesign retatrutide immediately. The first program should ask:</p>
+<blockquote>
+<p>Can retatrutide / LY3437943 be absorbed through a SNAC-like gastric delivery window while remaining intact and preserving GLP-1R / GIPR / GCGR activity balance?</p>
+</blockquote>
+<p>Initial feasibility: <strong>possible but materially harder than semaglutide</strong> because retatrutide is larger, multi-receptor balanced, and has no approved oral precedent.</p>
+<hr />
+<h1 id="iteration-1-semaglutidesnac-mechanism-molecule-comparison">Iteration 1 — Semaglutide/SNAC Mechanism + Molecule Comparison</h1>
+<h2 id="11-semaglutide-to-pill-mechanism-table">1.1 Semaglutide-to-pill mechanism table</h2>
+<table>
+<thead>
+<tr>
+<th>Mechanism element</th>
+<th>What oral semaglutide uses</th>
+<th>Why it matters</th>
+<th>Transferability to retatrutide</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Absorption enhancer</td>
+<td>SNAC / salcaprozate sodium</td>
+<td>Enables oral peptide absorption in a tablet</td>
+<td>Plausible starting point</td>
+</tr>
+<tr>
+<td>Absorption site</td>
+<td>Primarily stomach, near tablet surface</td>
+<td>Avoids relying on intestinal paracellular uptake</td>
+<td>Plausible, but must verify retatrutide behavior</td>
+</tr>
+<tr>
+<td>pH microenvironment</td>
+<td>SNAC locally buffers / raises pH</td>
+<td>Reduces acid/protease degradation near tablet</td>
+<td>Likely useful</td>
+</tr>
+<tr>
+<td>Protease protection</td>
+<td>Local buffering reduces gastric enzymatic breakdown</td>
+<td>Extends survival window</td>
+<td>Likely useful, but retatrutide-specific stability unknown</td>
+</tr>
+<tr>
+<td>Transcellular transport</td>
+<td>SNAC transiently enhances gastric epithelial absorption</td>
+<td>Key mechanism for systemic delivery</td>
+<td>Must test; larger peptide may absorb worse</td>
+</tr>
+<tr>
+<td>Monomer / aggregation effect</td>
+<td>SNAC helps semaglutide remain absorbable</td>
+<td>Aggregates absorb poorly</td>
+<td>Critical unknown for retatrutide</td>
+</tr>
+<tr>
+<td>Co-localized release</td>
+<td>Tablet releases semaglutide and SNAC together</td>
+<td>High local enhancer concentration matters</td>
+<td>Required for any analog approach</td>
+</tr>
+<tr>
+<td>Low absolute bioavailability accepted</td>
+<td>Oral semaglutide works despite very low bioavailability</td>
+<td>Potency + long half-life compensate</td>
+<td>Retatrutide may tolerate low absorption if exposure is stable, but safety variability matters</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key cited evidence:</strong></p>
+<ul>
+<li>PMID <strong>30429357</strong> — <em>Transcellular stomach absorption of a derivatized glucagon-like peptide-1 receptor agonist.</em> Reports semaglutide + SNAC absorption in the stomach, close to the tablet surface, requiring SNAC; SNAC protects via local buffering and transient absorption enhancement.</li>
+<li>PMID <strong>31436480</strong> — <em>Oral Semaglutide: A Review of the First Oral GLP-1 Receptor Agonist.</em> Reviews SNAC as preventing stomach destruction and facilitating gastric transcellular absorption.</li>
+<li>PMID <strong>35838946</strong> — <em>A new era for oral peptides: SNAC and the development of oral semaglutide...</em> Notes semaglutide was a strong oral-delivery candidate due to low molecular weight, long half-life, and high potency.</li>
+<li>PMID <strong>30781867</strong> — Compares SNAC and sodium caprate/C10 mechanisms.</li>
+<li>PMID <strong>36559036</strong> — Reviews gastrointestinal permeation enhancers for oral peptide pharmaceuticals.</li>
+</ul>
+<h2 id="12-physicochemical-comparison">1.2 Physicochemical comparison</h2>
+<p>PubChem-derived values:</p>
+<table>
+<thead>
+<tr>
+<th>Compound</th>
+<th style="text-align: right;">PubChem CID</th>
+<th>Formula</th>
+<th style="text-align: right;">Molecular weight</th>
+<th>InChIKey</th>
+<th>Relevance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Semaglutide</td>
+<td style="text-align: right;">56843331</td>
+<td>C187H291N45O59</td>
+<td style="text-align: right;">~4114 Da</td>
+<td>DLSWIYLPEUIQAV-CCUURXOWSA-N</td>
+<td>Proven SNAC-compatible GLP-1 analog</td>
+</tr>
+<tr>
+<td>Retatrutide / LY3437943</td>
+<td style="text-align: right;">171390338</td>
+<td>C221H342N46O68</td>
+<td style="text-align: right;">~4731 Da</td>
+<td>MLOLQJNKXBNWFW-SAGGEDDASA-N</td>
+<td>Target molecule; larger triple agonist</td>
+</tr>
+<tr>
+<td>Tirzepatide</td>
+<td style="text-align: right;">166567236</td>
+<td>C225H348N48O68</td>
+<td style="text-align: right;">~4813 Da</td>
+<td>BTSOGEDATSQOAF-MCNPHUAVSA-N</td>
+<td>Useful comparator; dual GIP/GLP-1 agonist</td>
+</tr>
+<tr>
+<td>Salcaprozate sodium / SNAC</td>
+<td style="text-align: right;">23669833</td>
+<td>C15H20NNaO4</td>
+<td style="text-align: right;">~301.31 Da</td>
+<td>UOENJXXSKABLJL-UHFFFAOYSA-M</td>
+<td>Semaglutide oral enhancer</td>
+</tr>
+<tr>
+<td>Sodium caprate / C10</td>
+<td style="text-align: right;">4457968</td>
+<td>C10H19NaO2</td>
+<td style="text-align: right;">~194.25 Da</td>
+<td>FIWQZURFGYXCEO-UHFFFAOYSA-M</td>
+<td>Comparator permeation enhancer</td>
+</tr>
+</tbody>
+</table>
+<h2 id="13-iteration-1-conclusion">1.3 Iteration 1 conclusion</h2>
+<p>Retatrutide is only ~15% heavier than semaglutide by molecular weight, but that difference may be disproportionately important for gastric epithelial transport. The bigger issue is not just size; it is whether retatrutide’s conformation, lipidation, aggregation state, and tri-receptor activity survive a SNAC-like gastric formulation environment.</p>
+<p><strong>Iteration 1 decision:</strong> move forward with a formulation-first hypothesis, not sequence redesign yet.</p>
+<hr />
+<h1 id="iteration-2-oralization-strategy-ranking-enhancer-screen">Iteration 2 — Oralization Strategy Ranking + Enhancer Screen</h1>
+<h2 id="21-candidate-oralization-strategies">2.1 Candidate oralization strategies</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Rank</th>
+<th>Strategy</th>
+<th style="text-align: right;">Feasibility</th>
+<th>Why</th>
+<th>Main risk</th>
+<th>Best next test</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td>Retatrutide + SNAC-like gastric tablet</td>
+<td style="text-align: right;">Medium</td>
+<td>Closest proven precedent; stomach absorption validated for semaglutide</td>
+<td>May not transfer to larger/more complex peptide</td>
+<td>Simulated gastric fluid stability + epithelial permeability</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>Retatrutide + SNAC analog screen</td>
+<td style="text-align: right;">Medium</td>
+<td>Enhancer could be tuned for retatrutide solubility/monomerization</td>
+<td>Novel enhancer safety/regulatory burden</td>
+<td>Small enhancer panel with solubility + permeability assays</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>C10 / sodium caprate gastric or intestinal formulation</td>
+<td style="text-align: right;">Medium-low</td>
+<td>Known permeation enhancer; PMID 38070657 studied C10/SNAC gastric tablets for GIP/GLP-1 peptide in monkeys</td>
+<td>Paracellular effects and size limits; tissue irritation</td>
+<td>Compare C10 vs SNAC erodible tablet models</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>Enteric coating + permeation enhancer</td>
+<td style="text-align: right;">Medium-low</td>
+<td>Protects from stomach, targets intestine</td>
+<td>Intestinal proteases + low absorption</td>
+<td>Simulated intestinal fluid + Caco-2/intestinal model</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>Protease inhibitor + enhancer combo</td>
+<td style="text-align: right;">Low-medium</td>
+<td>Addresses degradation and permeability together</td>
+<td>Chronic protease-inhibitor safety concerns</td>
+<td>Enzyme degradation panel only; do not advance without safety screen</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>Retatrutide analog redesign for oral developability</td>
+<td style="text-align: right;">Low-medium</td>
+<td>Could improve stability/aggregation</td>
+<td>May break GLP-1R/GIPR/GCGR potency balance</td>
+<td>Only after formulation-first failure</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>Nanoparticle / vesicle delivery</td>
+<td style="text-align: right;">Low-medium</td>
+<td>Interesting emerging literature</td>
+<td>Manufacturing, reproducibility, unclear systemic exposure</td>
+<td>Literature review + exploratory in vitro uptake</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td>Simple oral capsule/tablet without enhancer</td>
+<td style="text-align: right;">Very low</td>
+<td>Peptide likely degraded and not absorbed</td>
+<td>Near-certain failure</td>
+<td>Not worth prioritizing</td>
+</tr>
+</tbody>
+</table>
+<h2 id="22-enhancer-screen-map">2.2 Enhancer screen map</h2>
+<table>
+<thead>
+<tr>
+<th>Enhancer class</th>
+<th>Examples</th>
+<th>Mechanism hypothesis</th>
+<th>Fit for retatrutide</th>
+<th>Development risk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SNAC / salcaprozate-like</td>
+<td>SNAC, close analogs</td>
+<td>Gastric local pH shift, monomerization, transcellular absorption</td>
+<td>Best first-line</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Medium-chain fatty acids</td>
+<td>Sodium caprate / C10</td>
+<td>Membrane perturbation, tight junction/paracellular effects</td>
+<td>Worth comparator testing</td>
+<td>Medium-high chronic safety concern</td>
+</tr>
+<tr>
+<td>Bile salt / surfactant-like</td>
+<td>bile salt derivatives</td>
+<td>Membrane fluidization</td>
+<td>Possible but harsher</td>
+<td>Higher GI irritation risk</td>
+</tr>
+<tr>
+<td>Mucoadhesive systems</td>
+<td>polymers, patches, gels</td>
+<td>Increase residence time near epithelium</td>
+<td>Could amplify enhancer</td>
+<td>Formulation complexity</td>
+</tr>
+<tr>
+<td>Protease-protection systems</td>
+<td>local buffers, enzyme inhibitors</td>
+<td>Reduce degradation</td>
+<td>Helpful adjunct, not sufficient</td>
+<td>Safety and specificity</td>
+</tr>
+<tr>
+<td>Nanocarriers</td>
+<td>PLGA, chitosan, liposomes, vesicles</td>
+<td>Protect and traffic peptide</td>
+<td>Exploratory</td>
+<td>Scale/regulatory complexity</td>
+</tr>
+</tbody>
+</table>
+<h2 id="23-key-external-signal-from-literature">2.3 Key external signal from literature</h2>
+<p>PMID <strong>38070657</strong> — <em>Development and evaluation of C10 and SNAC erodible tablets for gastric delivery of a GIP/GLP1 peptide in monkeys.</em></p>
+<p>This is highly relevant because it directly tests SNAC and C10 gastric delivery beyond semaglutide, using a GIP/GLP-1 dual agonist peptide in monkeys. That makes it a better analog for retatrutide than semaglutide alone, although retatrutide adds GCGR activity and has its own scaffold.</p>
+<h2 id="24-iteration-2-conclusion">2.4 Iteration 2 conclusion</h2>
+<p>The top research track should be:</p>
+<ol>
+<li><strong>SNAC baseline</strong></li>
+<li><strong>C10 comparator</strong></li>
+<li><strong>SNAC analog / salcaprozate-like screen</strong></li>
+<li><strong>Combination with release-rate optimization</strong></li>
+</ol>
+<p>Avoid chemical retatrutide redesign until formulation-first testing shows why the native molecule fails.</p>
+<hr />
+<h1 id="iteration-3-stability-map-receptor-activity-preservation-experiment-plan">Iteration 3 — Stability Map + Receptor-Activity Preservation + Experiment Plan</h1>
+<h2 id="31-retatrutide-stability-risk-map">3.1 Retatrutide stability risk map</h2>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Why it matters</th>
+<th style="text-align: right;">Severity</th>
+<th>What to measure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Acid degradation</td>
+<td>Oral delivery exposes peptide to stomach pH</td>
+<td style="text-align: right;">High</td>
+<td>LC-MS intact peptide after simulated gastric fluid</td>
+</tr>
+<tr>
+<td>Pepsin cleavage</td>
+<td>Gastric protease degradation</td>
+<td style="text-align: right;">High</td>
+<td>Time-course degradation ± SNAC</td>
+</tr>
+<tr>
+<td>Intestinal proteases</td>
+<td>Trypsin/chymotrypsin if enteric release used</td>
+<td style="text-align: right;">High</td>
+<td>Simulated intestinal fluid stability</td>
+</tr>
+<tr>
+<td>Aggregation / self-association</td>
+<td>Aggregates reduce absorption and alter activity</td>
+<td style="text-align: right;">High</td>
+<td>DLS/SEC/HPLC with and without enhancer</td>
+</tr>
+<tr>
+<td>Lipid side-chain interactions</td>
+<td>Lipidation may help albumin binding but hinder enhancer behavior</td>
+<td style="text-align: right;">Medium-high</td>
+<td>Binding/aggregation and permeability assays</td>
+</tr>
+<tr>
+<td>pH-induced conformational shift</td>
+<td>Could affect receptor pharmacology</td>
+<td style="text-align: right;">Medium</td>
+<td>Circular dichroism / structure prediction / activity assays after exposure</td>
+</tr>
+<tr>
+<td>Adsorption to formulation surfaces</td>
+<td>Large lipidated peptides can stick to excipients</td>
+<td style="text-align: right;">Medium</td>
+<td>Recovery assay from tablet/excipient blends</td>
+</tr>
+<tr>
+<td>Oxidation/deamidation</td>
+<td>Storage and GI exposure liabilities</td>
+<td style="text-align: right;">Medium</td>
+<td>Forced degradation LC-MS</td>
+</tr>
+</tbody>
+</table>
+<h2 id="32-receptor-activity-preservation-map">3.2 Receptor-activity preservation map</h2>
+<p>Retatrutide is not just “stronger semaglutide.” It requires balanced activity across:</p>
+<ul>
+<li><strong>GLP-1R</strong> — appetite/glucose effects</li>
+<li><strong>GIPR</strong> — incretin/adipose/metabolic signaling</li>
+<li><strong>GCGR</strong> — energy expenditure/liver/glucagon signaling</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Activity test</th>
+<th>Why needed</th>
+<th>Go/no-go idea</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GLP-1R cAMP assay</td>
+<td>Confirm GLP-1 activity survives formulation exposure</td>
+<td>Retain activity near reference retatrutide</td>
+</tr>
+<tr>
+<td>GIPR cAMP assay</td>
+<td>Preserve dual incretin component</td>
+<td>No disproportionate loss</td>
+</tr>
+<tr>
+<td>GCGR cAMP assay</td>
+<td>Preserve glucagon component without unexpected dominance</td>
+<td>Avoid skewed GCGR-heavy profile</td>
+</tr>
+<tr>
+<td>Tri-receptor potency ratio</td>
+<td>Retatrutide’s profile is the product, not just any activity</td>
+<td>Ratio should remain close to native reference</td>
+</tr>
+<tr>
+<td>Serum albumin binding</td>
+<td>Lipidation drives half-life</td>
+<td>No major loss of albumin-binding behavior</td>
+</tr>
+<tr>
+<td>Cell viability / epithelial irritation</td>
+<td>Enhancers can injure epithelium</td>
+<td>Must pass before advancing</td>
+</tr>
+</tbody>
+</table>
+<h2 id="33-three-stage-experimental-plan">3.3 Three-stage experimental plan</h2>
+<h3 id="stage-a-non-biological-formulation-screen">Stage A — Non-biological formulation screen</h3>
+<p>Goal: eliminate obviously bad conditions before cell assays.</p>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Conditions</th>
+<th>Readout</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Solubility</td>
+<td>Retatrutide ± SNAC ± C10, pH gradient</td>
+<td>soluble fraction</td>
+</tr>
+<tr>
+<td>Aggregation</td>
+<td>same matrix</td>
+<td>DLS/SEC aggregation</td>
+</tr>
+<tr>
+<td>Stability</td>
+<td>simulated gastric fluid ± SNAC</td>
+<td>intact peptide by LC-MS</td>
+</tr>
+<tr>
+<td>Release-rate model</td>
+<td>erodible matrix variants</td>
+<td>co-release profile</td>
+</tr>
+</tbody>
+</table>
+<h3 id="stage-b-permeability-and-epithelial-safety">Stage B — Permeability and epithelial safety</h3>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Model</th>
+<th>Readout</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gastric epithelial permeability</td>
+<td>gastric epithelial cell model / ex vivo tissue</td>
+<td>apparent permeability / transported intact peptide</td>
+</tr>
+<tr>
+<td>Cell integrity</td>
+<td>TEER, LDH, histology if ex vivo</td>
+<td>reversible vs damaging permeability</td>
+</tr>
+<tr>
+<td>SNAC vs C10 comparison</td>
+<td>matched release conditions</td>
+<td>exposure vs safety window</td>
+</tr>
+</tbody>
+</table>
+<h3 id="stage-c-activity-preservation">Stage C — Activity preservation</h3>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Readout</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GLP-1R activity after formulation exposure</td>
+<td>cAMP EC50/Emax</td>
+</tr>
+<tr>
+<td>GIPR activity after formulation exposure</td>
+<td>cAMP EC50/Emax</td>
+</tr>
+<tr>
+<td>GCGR activity after formulation exposure</td>
+<td>cAMP EC50/Emax</td>
+</tr>
+<tr>
+<td>Albumin-binding behavior</td>
+<td>binding affinity / shift assay</td>
+</tr>
+<tr>
+<td>Degradation product check</td>
+<td>LC-MS impurity/degradation map</td>
+</tr>
+</tbody>
+</table>
+<h2 id="34-candidate-program-matrix">3.4 Candidate program matrix</h2>
+<table>
+<thead>
+<tr>
+<th>Candidate program</th>
+<th>Description</th>
+<th style="text-align: right;">Score / 10</th>
+<th>Decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reta-O1</td>
+<td>Native retatrutide + SNAC gastric erodible tablet concept</td>
+<td style="text-align: right;">6.5</td>
+<td>First lead program</td>
+</tr>
+<tr>
+<td>Reta-O2</td>
+<td>Native retatrutide + C10 gastric/intestinal comparator</td>
+<td style="text-align: right;">5.0</td>
+<td>Comparator program</td>
+</tr>
+<tr>
+<td>Reta-O3</td>
+<td>Native retatrutide + SNAC analog panel</td>
+<td style="text-align: right;">6.0</td>
+<td>Parallel optimization</td>
+</tr>
+<tr>
+<td>Reta-O4</td>
+<td>Retatrutide analog with altered lipid linker for oral delivery</td>
+<td style="text-align: right;">4.5</td>
+<td>Hold until failure mode known</td>
+</tr>
+<tr>
+<td>Reta-O5</td>
+<td>Enteric coated retatrutide + enhancer</td>
+<td style="text-align: right;">4.5</td>
+<td>Secondary route</td>
+</tr>
+<tr>
+<td>Reta-O6</td>
+<td>Nanocarrier/vesicle retatrutide</td>
+<td style="text-align: right;">3.5</td>
+<td>Exploratory only</td>
+</tr>
+</tbody>
+</table>
+<h2 id="35-iteration-3-conclusion">3.5 Iteration 3 conclusion</h2>
+<p>The next concrete research step is <strong>not</strong> molecule redesign. It is a comparative formulation/stability screen:</p>
+<ol>
+<li>Retatrutide alone</li>
+<li>Retatrutide + SNAC</li>
+<li>Retatrutide + C10</li>
+<li>Retatrutide + SNAC analog candidates</li>
+<li>Semaglutide + SNAC as positive control</li>
+<li>Scrambled/inactive peptide as negative analytical control where relevant</li>
+</ol>
+<p>Primary readouts:</p>
+<ul>
+<li>intact peptide recovery</li>
+<li>aggregation state</li>
+<li>gastric permeability</li>
+<li>epithelial safety</li>
+<li>preserved GLP-1R/GIPR/GCGR activity ratio</li>
+</ul>
+<hr />
+<h1 id="final-recommendation-after-three-loops">Final Recommendation After Three Loops</h1>
+<h2 id="best-near-term-hypothesis">Best near-term hypothesis</h2>
+<p><strong>Reta-O1: native retatrutide + SNAC-like gastric delivery</strong> is the correct first experiment because it directly tests whether the semaglutide/Rybelsus playbook transfers.</p>
+<h2 id="best-parallel-hypothesis">Best parallel hypothesis</h2>
+<p><strong>Reta-O3: SNAC analog panel</strong> should run in parallel because retatrutide’s larger size and different lipidated scaffold may require enhancer optimization.</p>
+<h2 id="what-not-to-do-first">What not to do first</h2>
+<p>Do not start by modifying retatrutide’s sequence or lipid linker. That risks breaking tri-agonist pharmacology before we even know whether formulation alone can work.</p>
+<h2 id="research-grade-next-deliverable">Research-grade next deliverable</h2>
+<p>Create a <code>Retatrutide Oralization Assay Plan</code> with:</p>
+<ol>
+<li>assay matrix</li>
+<li>controls</li>
+<li>sample conditions</li>
+<li>go/no-go thresholds</li>
+<li>literature citations</li>
+<li>candidate enhancer list</li>
+<li>data template for scoring</li>
+</ol>
+<hr />
+<h1 id="references-source-facts">References / Source Facts</h1>
+<ul>
+<li>PMID 30429357 — <em>Transcellular stomach absorption of a derivatized glucagon-like peptide-1 receptor agonist.</em></li>
+<li>PMID 31436480 — <em>Oral Semaglutide: A Review of the First Oral GLP-1 Receptor Agonist.</em></li>
+<li>PMID 30781867 — <em>Intestinal Permeation Enhancers for Oral Delivery of Macromolecules: A Comparison between Salcaprozate Sodium (SNAC) and Sodium Caprate (C10).</em></li>
+<li>PMID 36559036 — <em>Gastrointestinal Permeation Enhancers for the Development of Oral Peptide Pharmaceuticals.</em></li>
+<li>PMID 35838946 — <em>A new era for oral peptides: SNAC and the development of oral semaglutide for the treatment of type 2 diabetes.</em></li>
+<li>PMID 38070657 — <em>Development and evaluation of C10 and SNAC erodible tablets for gastric delivery of a GIP/GLP1 peptide in monkeys.</em></li>
+<li>PubChem CID 56843331 — Semaglutide</li>
+<li>PubChem CID 171390338 — Retatrutide / LY3437943</li>
+<li>PubChem CID 166567236 — Tirzepatide</li>
+<li>PubChem CID 23669833 — Salcaprozate sodium / SNAC</li>
+<li>PubChem CID 4457968 — Sodium caprate / C10</li>
+</ul></article></main></body></html>

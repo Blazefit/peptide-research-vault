@@ -73,23 +73,25 @@
     var officialCount = Array.isArray(refs.official) ? refs.official.length : 0;
     var observationalCount = Array.isArray(refs.observational) ? refs.observational.length : 0;
     var adverseCount = Array.isArray(refs.adverse) ? refs.adverse.length : 0;
-    var totalRefs = rctCount + preclinicalCount + reviewCount + officialCount + observationalCount + adverseCount;
+    var sourceCounts = data.summary && data.summary.source_counts ? data.summary.source_counts : {};
+    var totalRefs = data.summary && data.summary.total_references ? data.summary.total_references : (rctCount + preclinicalCount + reviewCount + officialCount + observationalCount + adverseCount);
+    var indexedNotes = data.summary && data.summary.total_source_notes_indexed ? data.summary.total_source_notes_indexed : totalRefs;
 
     // Update hero badge
     var badge = document.querySelector('.hero-badge');
     if (badge) {
-      badge.textContent = peptides.length + ' Compounds \u00B7 ' + totalRefs + ' Citations \u00B7 6 Evidence Tiers';
+      badge.textContent = peptides.length + ' Compounds · ' + indexedNotes + ' Vault Notes · One Canonical Source';
     }
 
-    // Update stat cards
-    setTextById('statRCT', rctCount);
-    setTextById('statPreclinical', preclinicalCount);
-    setTextById('statReviews', reviewCount);
+    // Update stat cards with the canonical vault counts instead of legacy tier buckets.
+    setTextById('statRCT', sourceCounts.study || 0);
+    setTextById('statPreclinical', sourceCounts.youtube || 0);
+    setTextById('statReviews', totalRefs);
 
     // Update references section description
     var sectionDesc = document.querySelector('.references-section .section-desc');
     if (sectionDesc) {
-      sectionDesc.textContent = totalRefs + ' citations across 6 categories. All links point to PubMed, publisher sites, or official regulatory sources.';
+      sectionDesc.textContent = totalRefs + ' public links indexed from the regular peptide vault. Inventory/orders/private notes are excluded from this public build.';
     }
 
     // Update reference tabs counts
@@ -168,7 +170,19 @@
         '<span class="card-tier"><span class="tier-badge ' + tierClass + '">' + escapeHtml(p.tier) + '</span></span>' +
       '</div>' +
       '<p class="card-one-liner">' + escapeHtml(p.one_liner) + '</p>' +
+      '<div class="card-vault-meta">' + escapeHtml(p.category || 'Regular vault') + ' · ' + sourceSummary(p) + '</div>' +
     '</div>';
+  }
+
+  function sourceSummary(p) {
+    var counts = p.source_counts || {};
+    var total = 0;
+    var parts = [];
+    Object.keys(counts).sort().forEach(function (key) {
+      total += counts[key];
+      parts.push(counts[key] + ' ' + key);
+    });
+    return total ? parts.join(', ') : 'overview only';
   }
 
   // --- Filtering ---
@@ -176,10 +190,10 @@
     var q = searchQuery.toLowerCase().trim();
     return peptides.filter(function (p) {
       var matchesTier = activeTier === 'all' || p.tier === activeTier;
-      var matchesSearch = !q ||
-        p.name.toLowerCase().indexOf(q) !== -1 ||
-        p.one_liner.toLowerCase().indexOf(q) !== -1 ||
-        p.slug.toLowerCase().indexOf(q) !== -1;
+      var libraryText = (p.library_entries || []).map(function (e) { return [e.title, e.excerpt, e.vault_path].join(' '); }).join(' ');
+      var noteText = (p.source_notes || []).map(function (n) { return [n.title, n.source_name, n.vault_path].join(' '); }).join(' ');
+      var haystack = [p.name, p.one_liner, p.slug, p.category, (p.aliases || []).join(' '), libraryText, noteText].join(' ').toLowerCase();
+      var matchesSearch = !q || haystack.indexOf(q) !== -1;
       return matchesTier && matchesSearch;
     });
   }
@@ -195,14 +209,18 @@
 
   function openDrawer(p) {
     var tierClass = 'tier-' + p.tier.toLowerCase();
+    var aliases = (p.aliases && p.aliases.length) ? p.aliases.join(', ') : '—';
     var html = '<div class="drawer-tier-badge"><span class="tier-badge ' + tierClass + '">' + escapeHtml(p.tier) + '</span><span style="font-size:12px;color:var(--text-muted)">Tier ' + escapeHtml(p.tier) + '</span></div>' +
       '<h2 class="drawer-name">' + escapeHtml(p.name) + '</h2>' +
       '<div class="drawer-one-liner">' + escapeHtml(p.one_liner) + '</div>' +
-      '<div class="drawer-section-title">Details</div>' +
+      '<div class="drawer-section-title">Regular Vault Details</div>' +
       '<div class="drawer-meta">' +
-        '<div class="drawer-meta-item"><div class="drawer-meta-label">Slug</div><div class="drawer-meta-value" style="font-family:var(--mono);font-size:12px;">' + escapeHtml(p.slug) + '</div></div>' +
+        '<div class="drawer-meta-item"><div class="drawer-meta-label">Category</div><div class="drawer-meta-value">' + escapeHtml(p.category || '—') + '</div></div>' +
+        '<div class="drawer-meta-item"><div class="drawer-meta-label">Aliases</div><div class="drawer-meta-value">' + escapeHtml(aliases) + '</div></div>' +
+        '<div class="drawer-meta-item"><div class="drawer-meta-label">Source notes</div><div class="drawer-meta-value">' + escapeHtml(sourceSummary(p)) + '</div></div>' +
+        '<div class="drawer-meta-item"><div class="drawer-meta-label">Vault path</div><div class="drawer-meta-value" style="font-family:var(--mono);font-size:12px;">' + escapeHtml(p.vault_path || p.slug) + '</div></div>' +
         '<div class="drawer-meta-item"><div class="drawer-meta-label">Tier</div><div class="drawer-meta-value">' + escapeHtml(p.tier) + ' — ' + getTierDescription(p.tier) + '</div></div>' +
-      '</div>';
+      '</div>' + renderLibraryEntries(p) + renderSourceNotes(p);
 
     if (drawerBody) drawerBody.innerHTML = html;
     if (detailDrawer) {
@@ -211,6 +229,43 @@
     }
     if (drawerOverlay) drawerOverlay.classList.add('open');
     document.body.style.overflow = 'hidden';
+  }
+
+
+  function renderLibraryEntries(p) {
+    var entries = p.library_entries || [];
+    if (!entries.length) return '';
+    var html = '<div class="drawer-section-title">Full Old-Vault Library Under ' + escapeHtml(p.name) + ' (' + entries.length + ')</div>' +
+      '<div class="drawer-source-list drawer-library-list">';
+    for (var i = 0; i < entries.length; i++) {
+      var e = entries[i];
+      var href = e.href ? ' href="' + escapeAttr(e.href) + '" target="_blank" rel="noopener noreferrer"' : '';
+      var label = e.overview ? 'overview' : (e.type || 'library');
+      html += '<a class="drawer-source-item drawer-library-item"' + href + '>' +
+        '<strong>' + escapeHtml(e.title || 'Vault page') + '</strong>' +
+        '<span>' + escapeHtml((e.category || 'Old vault') + ' · ' + label + ' · ' + (e.vault_path || '')) + '</span>';
+      if (e.excerpt) {
+        html += '<em>' + escapeHtml(e.excerpt) + '</em>';
+      }
+      html += '</a>';
+    }
+    return html + '</div>';
+  }
+
+  function renderSourceNotes(p) {
+    var notes = p.source_notes || [];
+    if (!notes.length) return '';
+    var html = '<div class="drawer-section-title">Obsidian Vault Notes (' + notes.length + ')</div><div class="drawer-source-list">';
+    for (var i = 0; i < notes.length; i++) {
+      var n = notes[i];
+      var tag = n.url ? 'a' : 'div';
+      var href = n.url ? ' href="' + escapeAttr(n.url) + '" target="_blank" rel="noopener noreferrer"' : '';
+      html += '<' + tag + ' class="drawer-source-item"' + href + '>' +
+        '<strong>' + escapeHtml(n.title || 'Source note') + '</strong>' +
+        '<span>' + escapeHtml((n.source_name || 'Regular vault') + ' · ' + (n.type || 'note')) + '</span>' +
+      '</' + tag + '>';
+    }
+    return html + '</div>';
   }
 
   function closeDrawer() {

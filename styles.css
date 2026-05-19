@@ -336,6 +336,89 @@ input {
   letter-spacing: 0.5px;
 }
 
+/* ===== VAULT BRIDGE ===== */
+.vault-bridge-section {
+  padding: 34px 0 18px;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  background:
+    linear-gradient(180deg, rgba(28, 28, 46, 0.36), rgba(10, 10, 15, 0)),
+    radial-gradient(ellipse 60% 80% at 80% 10%, rgba(0, 113, 227, 0.08), transparent 65%);
+}
+
+.vault-bridge {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
+  gap: 28px;
+  align-items: center;
+}
+
+.vault-bridge-copy .section-eyebrow,
+.vault-bridge-copy .section-title,
+.vault-bridge-copy .section-desc {
+  text-align: left;
+}
+
+.vault-bridge-copy .section-title {
+  margin-bottom: 10px;
+}
+
+.vault-bridge-copy .section-desc {
+  margin: 0;
+  max-width: 620px;
+}
+
+.vault-bridge-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.bridge-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 154px;
+  padding: 18px;
+  color: var(--text);
+  background: rgba(20, 20, 32, 0.86);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.bridge-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 113, 227, 0.75);
+  background: var(--bg-elevated);
+  text-decoration: none;
+}
+
+.bridge-card-emphasis {
+  border-color: rgba(0, 113, 227, 0.55);
+  background: linear-gradient(145deg, rgba(0, 113, 227, 0.18), rgba(20, 20, 32, 0.92));
+}
+
+.bridge-kicker {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.bridge-card strong {
+  font-size: 18px;
+  letter-spacing: -0.3px;
+}
+
+.bridge-card span:last-child {
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
 /* ===== TIER LEGEND ===== */
 .tier-legend-section {
   padding: 48px 0;
@@ -550,6 +633,15 @@ input {
   overflow: hidden;
 }
 
+.card-vault-meta {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--text-dim);
+}
+
 /* ===== LOADING / ERROR STATES ===== */
 .loading-state,
 .error-state {
@@ -715,6 +807,51 @@ input {
   font-size: 14px;
   font-weight: 500;
   margin-top: 4px;
+}
+
+.drawer-source-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.drawer-source-item {
+  display: block;
+  padding: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  color: var(--text);
+}
+
+.drawer-source-item:hover {
+  border-color: var(--accent);
+  text-decoration: none;
+}
+
+.drawer-source-item strong {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.drawer-source-item span {
+  display: block;
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+.drawer-source-item em {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--text-muted);
+  font-style: normal;
+}
+
+.drawer-library-list {
+  max-height: none;
 }
 
 /* ===== REFERENCES SECTION ===== */
@@ -904,6 +1041,20 @@ input {
 
   .hero-stats {
     gap: 12px;
+  }
+
+  .vault-bridge {
+    grid-template-columns: 1fr;
+  }
+
+  .vault-bridge-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .vault-bridge-copy .section-eyebrow,
+  .vault-bridge-copy .section-title,
+  .vault-bridge-copy .section-desc {
+    text-align: center;
   }
 
   .stat-card {

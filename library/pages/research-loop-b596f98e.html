@@ -1,0 +1,289 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Science Autoresearch Loop — Peptide Pathways for Bipolar Mania Stabilization - Peptide Vault</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;750;850&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/style.css"></head><body><main><div class="topbar"><a class="back" href="../index.html">← Peptide Vault</a><span class="label">🧠 Cognitive &amp; Longevity/Bipolar Mania Stabilization/research-loop.md</span></div><article class="article"><h1 id="science-autoresearch-loop-peptide-pathways-for-bipolar-mania-stabilization">Science Autoresearch Loop — Peptide Pathways for Bipolar Mania Stabilization</h1>
+<blockquote>
+<p><strong>Research-only boundary:</strong> Severe bipolar disorder / mania is a high-risk psychiatric condition. This document is not treatment advice, dosing guidance, compounding guidance, or self-experimentation guidance. Any real-world program requires psychiatric, regulatory, toxicology, and ethics oversight.</p>
+</blockquote>
+<h2 id="project-setup">Project Setup</h2>
+<pre><code class="language-yaml">project_name: Peptide Pathways for Bipolar Mania Stabilization
+research_only: true
+therapeutic_area: bipolar disorder, mania, sleep/circadian instability, stress-resilience neuropeptides
+primary_hypothesis: A safer peptide-pathway research program should prioritize anti-stress and sleep/circadian stabilization mechanisms rather than stimulating mood, dopamine, glutamate, or energy.
+seed_topics:
+  - NPY / neuropeptide Y stress-resilience pathway
+  - sleep stabilization
+  - orexin / hypocretin modulation
+known_reference:
+  - NPY stress-resilience literature
+  - orexin/hypocretin sleep-wake literature
+  - bipolar mania sleep-deprivation/circadian literature
+candidate_space:
+  - NPY receptor subtype modulation, especially Y1/Y2/Y5 triage
+  - orexin-lowering or orexin-antagonist-informed pathway concepts
+  - combined stress-resilience + sleep-stability program
+protected_constraints:
+  - avoid mania activation
+  - avoid sleep disruption
+  - avoid dopamine/glutamate stimulation unless explicitly anti-manic
+  - avoid serotonergic toxicity
+  - avoid seizure-threshold concerns
+  - no dosing or self-use guidance
+iteration_budget: 5 candidate mutations after baseline
+</code></pre>
+<h2 id="binary-eval-suite">Binary Eval Suite</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Binary test</th>
+<th>Pass condition</th>
+<th>Fail condition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E1</td>
+<td>Anti-manic mechanism?</td>
+<td>Mechanism plausibly stabilizes mania drivers: stress arousal, sleep/circadian disruption, hyperarousal, agitation</td>
+<td>Mechanism is merely antidepressant/nootropic/energizing</td>
+</tr>
+<tr>
+<td>E2</td>
+<td>Sleep-safe?</td>
+<td>Avoids sleep disruption or directly supports sleep/circadian stabilization</td>
+<td>Could worsen insomnia, wakefulness, or circadian instability</td>
+</tr>
+<tr>
+<td>E3</td>
+<td>Avoids DA/glutamate activation?</td>
+<td>No obvious direct dopamine/glutamate stimulation without anti-manic guardrail</td>
+<td>Stimulant-like, pro-dopamine, pro-glutamate, ketamine-like, or activating neuroplasticity without guardrail</td>
+</tr>
+<tr>
+<td>E4</td>
+<td>Evidence-grounded?</td>
+<td>Has bipolar-specific or strong adjacent literature evidence</td>
+<td>Only speculative with no credible evidence</td>
+</tr>
+<tr>
+<td>E5</td>
+<td>Assayable target?</td>
+<td>Has concrete receptor, biomarker, behavioral model, or sleep/circadian readout</td>
+<td>No clear assay target</td>
+</tr>
+<tr>
+<td>E6</td>
+<td>No hard-stop safety flag?</td>
+<td>Mania, suicidality, seizure, serotonergic, and clinical-boundary risks are explicitly checked</td>
+<td>Safety not evaluated or human-use guidance appears</td>
+</tr>
+</tbody>
+</table>
+<p>Maximum score: <strong>6/6</strong>.</p>
+<hr />
+<h1 id="baseline-broad-npy-sleeporexin-idea">Baseline — Broad NPY + sleep/orexin idea</h1>
+<p><strong>Hypothesis:</strong> Broadly explore NPY and orexin/sleep peptides for bipolar mania stabilization.</p>
+<p><strong>Score:</strong> 4/6</p>
+<p><strong>Pass:</strong> E1, E3, E5, E6<br />
+<strong>Fail:</strong> E2, E4</p>
+<p><strong>Why:</strong> NPY is strongly tied to stress resilience and anxiety/stress biology, and orexin is clearly tied to sleep/wake state. But the baseline is too broad: it does not specify whether orexin should be agonized or blocked, and bipolar-specific NPY evidence is weak/indirect.</p>
+<p><strong>Decision:</strong> Keep as starting scaffold only; mutate toward safer specificity.</p>
+<hr />
+<h1 id="iteration-1-keep">Iteration 1 — KEEP</h1>
+<p><strong>Mutation:</strong> Narrow NPY from “general NPY” to <strong>NPY stress-resilience with receptor-subtype triage</strong>.</p>
+<p><strong>Hypothesis:</strong> NPY-pathway modulation may stabilize stress reactivity and anxiety/arousal components that contribute to bipolar destabilization, but receptor subtype matters. Prioritize Y1/Y2/Y5 mapping before candidate design.</p>
+<p><strong>Score:</strong> 5/6</p>
+<p><strong>Tests passed:</strong> E1, E3, E4, E5, E6<br />
+<strong>Tests failed:</strong> E2</p>
+<p><strong>Evidence notes:</strong></p>
+<ul>
+<li>PMID <strong>15337373</strong> — <em>The NPY system in stress, anxiety and depression.</em> NPY antagonizes behavioral consequences of stress across models; NPY knockout/inactivation increases emotionality.</li>
+<li>PMID <strong>27913193</strong> — <em>Neuropeptide Y, resilience, and PTSD therapeutics.</em> NPY is a mediator of stress resilience and a potential therapeutic focus in PTSD.</li>
+<li>OpenTargets confirmed assayable human targets: <strong>NPY1R</strong>, <strong>NPY2R</strong>, <strong>NPY5R</strong>.</li>
+</ul>
+<p><strong>Breakpoints discovered:</strong></p>
+<ul>
+<li>Direct bipolar/mania evidence for NPY is thin.</li>
+<li>“Increase NPY” is too crude. Receptor-subtype effects may diverge.</li>
+<li>Sleep stabilization is not yet explicit enough.</li>
+</ul>
+<p><strong>Decision:</strong> KEEP. It improves mechanistic precision and assayability, but needs sleep/circadian anchor.</p>
+<p><strong>Next mutation:</strong> Add orexin/hypocretin directionality, especially avoiding orexin agonism.</p>
+<hr />
+<h1 id="iteration-2-keep">Iteration 2 — KEEP</h1>
+<p><strong>Mutation:</strong> Add <strong>orexin-lowering / orexin-antagonist-informed sleep stabilization</strong> as the sleep/circadian module.</p>
+<p><strong>Hypothesis:</strong> For bipolar mania stabilization, orexin should be treated as a <strong>wakefulness/hyperarousal risk pathway</strong>. The safer direction is orexin reduction/antagonism or sleep stabilization, not orexin agonism.</p>
+<p><strong>Score:</strong> 6/6</p>
+<p><strong>Tests passed:</strong> E1, E2, E3, E4, E5, E6<br />
+<strong>Tests failed:</strong> none</p>
+<p><strong>Evidence notes:</strong></p>
+<ul>
+<li>PMID <strong>20655364</strong> — CSF hypocretin-1 / orexin A studied in mania vs unipolar depression vs controls; establishes direct mania-adjacent orexin evidence.</li>
+<li>PMID <strong>41127685</strong> — sleep disturbances linked to plasma orexin A levels in bipolar disorder; preliminary but directly relevant.</li>
+<li>PMID <strong>17950929</strong> — repeated sleep deprivation causes mania-like behaviors in mice; sleep deprivation is a mania-relevant trigger/model.</li>
+<li>PMID <strong>6873309</strong> — circadian rhythm disturbances in manic-depressive illness.</li>
+<li>OpenTargets: <strong>HCRTR1</strong> and <strong>HCRTR2</strong> strongly associated with insomnia/sleep phenotypes.</li>
+</ul>
+<p><strong>Breakpoints discovered:</strong></p>
+<ul>
+<li>Orexin agonism is a hard-risk direction for mania.</li>
+<li>Existing orexin antagonist drugs are mostly small molecules, not peptides. This is a pathway module, not necessarily a peptide candidate yet.</li>
+<li>Sedation is not the same as mood stabilization; assay plan must distinguish sleep improvement from anti-manic effect.</li>
+</ul>
+<p><strong>Decision:</strong> KEEP. This becomes the sleep/circadian safety backbone.</p>
+<p><strong>Next mutation:</strong> Combine NPY stress-resilience + orexin sleep stabilization into a dual-axis program.</p>
+<hr />
+<h1 id="iteration-3-keep">Iteration 3 — KEEP</h1>
+<p><strong>Mutation:</strong> Combine NPY receptor-subtype triage with orexin-antagonist-informed sleep stabilization.</p>
+<p><strong>Hypothesis:</strong> A dual-axis program — <strong>NPY for stress-resilience + orexin modulation for sleep/circadian stabilization</strong> — is safer than a single “antidepressant peptide” strategy because it targets two core mania destabilizers: stress arousal and sleep loss.</p>
+<p><strong>Score:</strong> 6/6</p>
+<p><strong>Tests passed:</strong> E1, E2, E3, E4, E5, E6<br />
+<strong>Tests failed:</strong> none</p>
+<p><strong>Candidate program:</strong> <strong>BMS-P1: NPY–Orexin Stabilization Axis</strong></p>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Target</th>
+<th>Direction</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stress-resilience</td>
+<td>NPY1R / NPY2R / NPY5R triage</td>
+<td>determine subtype-specific anxiolytic/stabilizing direction</td>
+<td>reduce stress reactivity without stimulation</td>
+</tr>
+<tr>
+<td>Sleep/circadian</td>
+<td>HCRTR1 / HCRTR2 pathway</td>
+<td>avoid agonism; use antagonist-informed model</td>
+<td>protect against sleep-loss-driven mania</td>
+</tr>
+<tr>
+<td>Biomarker</td>
+<td>sleep metrics, YMRS-like animal analogs, locomotor activity, corticosterone/HPA markers</td>
+<td>stabilization readout</td>
+<td>separates sedation from anti-manic stabilization</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Breakpoints discovered:</strong></p>
+<ul>
+<li>Need to avoid simply combining two sedating pathways.</li>
+<li>Need to measure mania-like behavior, not just sleep duration.</li>
+<li>Need to avoid reward/drive enhancement.</li>
+</ul>
+<p><strong>Decision:</strong> KEEP. Current lead concept.</p>
+<p><strong>Next mutation:</strong> Stress-test against BDNF/TrkB neuroplasticity pathway, because depression-focused programs often drift there.</p>
+<hr />
+<h1 id="iteration-4-discard-quarantine">Iteration 4 — DISCARD / QUARANTINE</h1>
+<p><strong>Mutation:</strong> Add BDNF/TrkB mimetic neuroplasticity as an antidepressant peptide module.</p>
+<p><strong>Hypothesis:</strong> A BDNF/TrkB mimetic peptide could improve bipolar depression through neuroplasticity.</p>
+<p><strong>Score:</strong> 3/6</p>
+<p><strong>Tests passed:</strong> E4, E5, E6<br />
+<strong>Tests failed:</strong> E1, E2, E3</p>
+<p><strong>Why it broke:</strong></p>
+<ul>
+<li>BDNF/TrkB activation is plausibly pro-plasticity and antidepressant-relevant, but for mania stabilization it is too activating unless tightly constrained.</li>
+<li>It does not directly stabilize sleep.</li>
+<li>It may drift toward ketamine-like “rapid antidepressant” logic, which is not automatically safe in bipolar mania.</li>
+<li>It introduces seizure/neuroexcitability and mood-switch concerns requiring heavy guardrails.</li>
+</ul>
+<p><strong>Breakpoints discovered:</strong></p>
+<ul>
+<li>“Antidepressant” is not equal to “safe for bipolar mania.”</li>
+<li>Neuroplasticity-enhancing pathways should be quarantined until anti-manic/sleep-stable guardrails exist.</li>
+</ul>
+<p><strong>Decision:</strong> DISCARD / QUARANTINE. Do not include BDNF/TrkB in the first-generation bipolar mania stabilization peptide program.</p>
+<p><strong>Next mutation:</strong> Convert the kept dual-axis concept into a concrete assay-first program with explicit kill criteria.</p>
+<hr />
+<h1 id="iteration-5-keep">Iteration 5 — KEEP</h1>
+<p><strong>Mutation:</strong> Add assay-first kill criteria and candidate gating to the NPY–orexin stabilization axis.</p>
+<p><strong>Hypothesis:</strong> The dual-axis concept becomes scientifically useful only if candidates must pass hard anti-manic, sleep-stability, and non-activation tests before advancing.</p>
+<p><strong>Score:</strong> 6/6</p>
+<p><strong>Tests passed:</strong> E1, E2, E3, E4, E5, E6<br />
+<strong>Tests failed:</strong> none</p>
+<p><strong>Kept program:</strong> <strong>BMS-P1 v0.2 — NPY–Orexin Stabilization Axis</strong></p>
+<h2 id="required-assays-tests">Required assays / tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test layer</th>
+<th>Readout</th>
+<th>Pass condition</th>
+<th>Fail condition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sleep/circadian</td>
+<td>sleep timing, sleep fragmentation, activity rhythm</td>
+<td>stabilizes sleep without rebound hyperactivity</td>
+<td>worsens insomnia or phase instability</td>
+</tr>
+<tr>
+<td>Mania-like behavior</td>
+<td>locomotor hyperactivity, risk/impulsivity proxy, sleep-deprivation mania model</td>
+<td>reduces mania-like activation without gross motor suppression</td>
+<td>stimulation or sedation-only artifact</td>
+</tr>
+<tr>
+<td>NPY target biology</td>
+<td>NPY1R/NPY2R/NPY5R receptor assays</td>
+<td>subtype effect is known and reproducible</td>
+<td>undefined receptor action</td>
+</tr>
+<tr>
+<td>Orexin pathway</td>
+<td>HCRTR1/HCRTR2 pathway readout</td>
+<td>no orexin agonism; antagonist-informed sleep stabilization</td>
+<td>wake-promoting effect</td>
+</tr>
+<tr>
+<td>DA/glutamate screen</td>
+<td>dopamine/glutamate activation markers</td>
+<td>no stimulant-like activation</td>
+<td>increased DA/glutamate drive</td>
+</tr>
+<tr>
+<td>Safety screen</td>
+<td>seizure threshold, suicidality proxy, serotonergic interaction, epithelial/systemic tolerability</td>
+<td>no hard-stop flag</td>
+<td>any hard-stop flag</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Decision:</strong> KEEP. This is the current best research scaffold.</p>
+<hr />
+<h1 id="final-result-after-5-iterations">Final Result After 5 Iterations</h1>
+<h2 id="best-current-hypothesis">Best current hypothesis</h2>
+<p><strong>BMS-P1 v0.2: NPY–Orexin Stabilization Axis</strong></p>
+<p>A bipolar mania stabilization peptide-pathway research program should start with:</p>
+<ol>
+<li><strong>NPY receptor-subtype triage</strong> for stress resilience / anti-arousal biology.</li>
+<li><strong>Orexin-antagonist-informed sleep/circadian stabilization</strong> to avoid sleep-loss-driven mania.</li>
+<li><strong>Hard kill criteria</strong> against wakefulness, dopamine/glutamate activation, and mania-like behavior.</li>
+</ol>
+<h2 id="best-candidate-direction">Best candidate direction</h2>
+<p>Not a final peptide yet. The best next step is a <strong>target-selection and assay program</strong>:</p>
+<ul>
+<li>NPY1R vs NPY2R vs NPY5R functional mapping</li>
+<li>HCRTR1/HCRTR2 modulation as a sleep-stability comparator</li>
+<li>sleep-deprivation mania model / circadian rhythm readouts</li>
+<li>dopamine/glutamate activation exclusion</li>
+</ul>
+<h2 id="quarantined-direction">Quarantined direction</h2>
+<p><strong>BDNF/TrkB mimetic peptides</strong>: interesting for depression biology, but fail first-pass mania stabilization criteria unless heavily constrained.</p>
+<h2 id="references-evidence-base">References / Evidence Base</h2>
+<ul>
+<li>PMID <strong>15337373</strong> — <em>The NPY system in stress, anxiety and depression.</em></li>
+<li>PMID <strong>27913193</strong> — <em>Neuropeptide Y, resilience, and PTSD therapeutics.</em></li>
+<li>PMID <strong>20655364</strong> — <em>CSF hypocretin-1 / orexin A levels in mania compared to unipolar depression and controls.</em></li>
+<li>PMID <strong>41127685</strong> — <em>Sleep disturbances linked to plasma orexin A levels in bipolar disorder.</em></li>
+<li>PMID <strong>17950929</strong> — <em>Behavioural sensitization to repeated sleep deprivation in a mice model of mania.</em></li>
+<li>PMID <strong>6873309</strong> — <em>Circadian rhythm disturbances in manic-depressive illness.</em></li>
+<li>PMID <strong>20492846</strong> — <em>The neurobiology of the switch process in bipolar disorder: a review.</em></li>
+<li>PMID <strong>37275985</strong> — plasma neuropeptides across schizophrenia, bipolar disorder, and major depression.</li>
+<li>OpenTargets target confirmations: <strong>NPY1R</strong>, <strong>NPY2R</strong>, <strong>NPY5R</strong>, <strong>HCRTR1</strong>, <strong>HCRTR2</strong>.</li>
+</ul></article></main></body></html>
