@@ -32,6 +32,7 @@
             </div>
             <nav class="header-nav">
                 <a href="#peptides" class="nav-link active">Compounds</a>
+                <a href="#studies" class="nav-link">Studies</a>
                 <a href="library/index.html" class="nav-link">Study Library</a>
                 <a href="peptides-101-slideshow.html" class="nav-link">Clinic Slides</a>
                 <a href="#references" class="nav-link">References</a>
@@ -49,6 +50,7 @@
             <p class="hero-subtitle">A clean public interface generated from the regular CrossFit Blaze peptide vault — one canonical source for overviews, studies, video notes, and safety framing.</p>
             <div class="hero-actions">
                 <a href="#peptides" class="btn btn-primary">Explore Compounds</a>
+                <a href="#studies" class="btn btn-ghost">Search Studies</a>
                 <a href="library/index.html" class="btn btn-ghost">Open Full Study Library</a>
                 <a href="peptides-101-slideshow.html" class="btn btn-ghost">View Clinic Slides</a>
                 <a href="#references" class="btn btn-ghost">View References</a>
@@ -168,6 +170,25 @@
             <!-- Populated by JS -->
         </div>
     </aside>
+
+    <!-- Studies Search Section -->
+    <section id="studies" class="studies-section">
+        <div class="container">
+            <p class="section-eyebrow">Dedicated Study Search</p>
+            <h2 class="section-title">Studies, trials, PubMed and ClinicalTrials notes</h2>
+            <p class="section-desc">Search the imported native Obsidian study notes plus the embedded old-vault study library. Click any result to open the source page or external trial/PubMed link.</p>
+            <div class="controls studies-controls">
+                <div class="search-wrap">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    <input type="search" id="studySearchInput" class="search-input" placeholder="Search studies by compound, trial ID, phase, PubMed, topic..." autocomplete="off">
+                </div>
+                <div class="results-count" id="studyResultsCount"></div>
+            </div>
+            <div class="study-results" id="studyResults">
+                <!-- Rendered by JS -->
+            </div>
+        </div>
+    </section>
 
     <!-- References Section -->
     <section id="references" class="references-section">

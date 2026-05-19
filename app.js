@@ -4,9 +4,11 @@
   // --- State ---
   var peptides = [];
   var references = {};
+  var studies = [];
   var summary = {};
   var activeTier = 'all';
   var searchQuery = '';
+  var studySearchQuery = '';
   var activeRefType = 'rct';
 
   // --- DOM refs ---
@@ -22,6 +24,9 @@
   var disclaimer = document.getElementById('disclaimer');
   var refTabs = document.getElementById('refTabs');
   var refList = document.getElementById('refList');
+  var studySearchInput = document.getElementById('studySearchInput');
+  var studyResults = document.getElementById('studyResults');
+  var studyResultsCount = document.getElementById('studyResultsCount');
 
   // --- Data loading ---
   function getDataURL() {
@@ -44,9 +49,11 @@
       .then(function (data) {
         summary = data.summary || {};
         references = data.references || {};
+        studies = data.studies || [];
         peptides = deduplicatePeptides(data.peptides || []);
         updateStats(data);
         renderGrid();
+        renderStudyResults();
         renderReferences();
       })
       .catch(function (err) {
@@ -75,16 +82,17 @@
     var adverseCount = Array.isArray(refs.adverse) ? refs.adverse.length : 0;
     var sourceCounts = data.summary && data.summary.source_counts ? data.summary.source_counts : {};
     var totalRefs = data.summary && data.summary.total_references ? data.summary.total_references : (rctCount + preclinicalCount + reviewCount + officialCount + observationalCount + adverseCount);
+    var totalStudies = data.summary && data.summary.total_studies ? data.summary.total_studies : studies.length;
     var indexedNotes = data.summary && data.summary.total_source_notes_indexed ? data.summary.total_source_notes_indexed : totalRefs;
 
     // Update hero badge
     var badge = document.querySelector('.hero-badge');
     if (badge) {
-      badge.textContent = peptides.length + ' Compounds · ' + indexedNotes + ' Vault Notes · One Canonical Source';
+      badge.textContent = peptides.length + ' Compounds · ' + totalStudies + ' Studies · ' + indexedNotes + ' Vault Notes';
     }
 
     // Update stat cards with the canonical vault counts instead of legacy tier buckets.
-    setTextById('statRCT', sourceCounts.study || 0);
+    setTextById('statRCT', totalStudies || sourceCounts.study || 0);
     setTextById('statPreclinical', sourceCounts.youtube || 0);
     setTextById('statReviews', totalRefs);
 
@@ -289,6 +297,41 @@
     return map[tier] || '';
   }
 
+  // --- Studies Search ---
+  function getFilteredStudies() {
+    var q = studySearchQuery.toLowerCase().trim();
+    var list = studies.filter(function (s) {
+      var haystack = [s.peptide, s.title, s.source_name, s.url, s.vault_path, s.excerpt, s.kind].join(' ').toLowerCase();
+      return !q || haystack.indexOf(q) !== -1;
+    });
+    return list.slice(0, 250);
+  }
+
+  function renderStudyResults() {
+    if (!studyResults) return;
+    var filtered = getFilteredStudies();
+    if (studyResultsCount) {
+      studyResultsCount.textContent = filtered.length + ' of ' + studies.length + ' studies';
+    }
+    if (!filtered.length) {
+      studyResults.innerHTML = '<div class="loading-state"><p>No studies match your search.</p></div>';
+      return;
+    }
+    var html = '';
+    for (var i = 0; i < filtered.length; i++) {
+      var s = filtered[i];
+      var tag = s.url ? 'a' : 'div';
+      var href = s.url ? ' href="' + escapeAttr(s.url) + '" target="_blank" rel="noopener noreferrer"' : '';
+      html += '<' + tag + ' class="study-item"' + href + '>' +
+        '<div class="study-kicker">' + escapeHtml((s.peptide || 'Compound') + ' · ' + (s.source_name || s.kind || 'Study')) + '</div>' +
+        '<div class="study-title">' + escapeHtml(s.title || 'Study note') + '</div>' +
+        (s.excerpt ? '<div class="study-excerpt">' + escapeHtml(s.excerpt) + '</div>' : '') +
+        (s.vault_path ? '<div class="study-path">' + escapeHtml(s.vault_path) + '</div>' : '') +
+      '</' + tag + '>';
+    }
+    studyResults.innerHTML = html;
+  }
+
   // --- References ---
   function renderReferences() {
     if (!refList) return;
@@ -319,6 +362,13 @@
       searchInput.addEventListener('input', function () {
         searchQuery = searchInput.value;
         renderGrid();
+      });
+    }
+
+    if (studySearchInput) {
+      studySearchInput.addEventListener('input', function () {
+        studySearchQuery = studySearchInput.value;
+        renderStudyResults();
       });
     }
 

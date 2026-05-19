@@ -226,6 +226,7 @@ def collect_source_notes(vault: Path) -> tuple[dict[str, Counter], dict[str, lis
             "source_name": str(meta.get("source_name") or meta.get("channel") or "Regular vault"),
             "url": url,
             "vault_path": rel.as_posix(),
+            "excerpt": plain_excerpt(body, limit=260),
         }
         counts[slug][kind] += 1
         notes_by_slug[slug].append(note)
@@ -302,11 +303,59 @@ def overview_files(vault: Path) -> list[Path]:
     return sorted(files)
 
 
+def build_studies_index(peptides: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    studies: list[dict[str, Any]] = []
+    seen: set[tuple[str, str, str]] = set()
+    study_needles = ("study", "trial", "pubmed", "clinicaltrials", "phase", "nct", "🔬 science")
+    for peptide in peptides:
+        for note in peptide.get("source_notes", []):
+            if note.get("type") != "study":
+                continue
+            key = (peptide["slug"], note.get("title", ""), note.get("url") or note.get("vault_path", ""))
+            if key in seen:
+                continue
+            seen.add(key)
+            studies.append(
+                {
+                    "slug": peptide["slug"],
+                    "peptide": peptide["name"],
+                    "title": note.get("title", "Study note"),
+                    "source_name": note.get("source_name", "Regular vault"),
+                    "url": note.get("url", ""),
+                    "vault_path": note.get("vault_path", ""),
+                    "excerpt": note.get("excerpt", ""),
+                    "kind": "study",
+                }
+            )
+        for entry in peptide.get("library_entries", []):
+            haystack = " ".join(str(entry.get(k, "")) for k in ("title", "type", "category", "vault_path", "excerpt")).lower()
+            if entry.get("overview") or not any(needle in haystack for needle in study_needles):
+                continue
+            key = (peptide["slug"], entry.get("title", ""), entry.get("href", ""))
+            if key in seen:
+                continue
+            seen.add(key)
+            studies.append(
+                {
+                    "slug": peptide["slug"],
+                    "peptide": peptide["name"],
+                    "title": entry.get("title", "Study library page"),
+                    "source_name": "Old HTML vault",
+                    "url": entry.get("href", ""),
+                    "vault_path": entry.get("vault_path", ""),
+                    "excerpt": entry.get("excerpt", ""),
+                    "kind": "library-study",
+                }
+            )
+    studies.sort(key=lambda s: (s.get("peptide", "").lower(), s.get("title", "").lower()))
+    return studies
+
+
 def build_dataset(vault: Path = DEFAULT_VAULT, legacy_data: Path | None = DEFAULT_LEGACY) -> dict[str, Any]:
     vault = Path(vault)
     legacy = load_legacy_by_slug(legacy_data)
     counts, notes_by_slug, references, private_count = collect_source_notes(vault)
-    library_by_slug = collect_library_entries(DEFAULT_LIBRARY_MANIFEST)
+    library_by_slug = collect_library_entries(DEFAULT_LIBRARY_MANIFEST if legacy_data is not None else None)
 
     peptides: list[dict[str, Any]] = []
     for path in overview_files(vault):
@@ -340,6 +389,7 @@ def build_dataset(vault: Path = DEFAULT_VAULT, legacy_data: Path | None = DEFAUL
         )
 
     peptides.sort(key=lambda p: ("SABCDF".find(p["tier"]) if p["tier"] in "SABCDF" else 99, p["name"].lower()))
+    studies = build_studies_index(peptides)
     total_refs = sum(len(items) for items in references.values())
     return {
         "source": {
@@ -354,9 +404,11 @@ def build_dataset(vault: Path = DEFAULT_VAULT, legacy_data: Path | None = DEFAUL
             "private_notes_excluded": private_count,
             "total_source_notes_indexed": sum(sum(c.values()) for c in counts.values()),
             "total_library_entries_indexed": sum(len(v) for v in library_by_slug.values()),
+            "total_studies": len(studies),
             "source_counts": dict(sum((Counter(p["source_counts"]) for p in peptides), Counter())),
         },
         "peptides": peptides,
+        "studies": studies,
         "references": references,
     }
 
